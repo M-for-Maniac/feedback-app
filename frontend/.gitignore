@@ -1,0 +1,9 @@
+node_modules/
+venv/
+__pycache__/
+*.pyc
+frontend/build/
+backend/بازخورد_۱۴۰۴.csv
+backend/تحلیل_دسته‌بندی_مشکلات.png
+backend/تحلیل_امتیاز_رضایت.png
+backend/گزارش_تحلیل_بازخورد.txt
