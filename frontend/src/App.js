@@ -21,7 +21,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://127.0.0.1:5000/submit_feedback', formData);
+      await axios.post('https://artinoco.pythonanywhere.com/submit_feedback', formData);
       setMessage('بازخورد با موفقیت ثبت شد');
       setFormData({
         feedback_type: '',
@@ -32,7 +32,7 @@ const App = () => {
         issue_description: '',
         project_task_id: ''
       });
-      setTimeout(() => setMessage(''), 3000); // Clear message after 3s
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       setMessage('خطا در ثبت بازخورد');
       console.error('Error submitting feedback:', error);
@@ -53,7 +53,6 @@ const App = () => {
             <option value="کارمند">کارمند</option>
           </select>
         </div>
-
         {formData.feedback_type === 'مشتری' && (
           <div className="form-group">
             <label>نوع پروژه:</label>
@@ -65,7 +64,6 @@ const App = () => {
             </select>
           </div>
         )}
-
         {formData.feedback_type === 'کارمند' && (
           <div className="form-group">
             <label>وظیفه/فرآیند:</label>
@@ -80,7 +78,6 @@ const App = () => {
             </select>
           </div>
         )}
-
         <div className="form-group">
           <label>امتیاز رضایت:</label>
           <select name="satisfaction_rating" value={formData.satisfaction_rating} onChange={handleChange} required>
@@ -92,7 +89,6 @@ const App = () => {
             <option value="5">۵ (بسیار راضی)</option>
           </select>
         </div>
-
         <div className="form-group">
           <label>دسته‌بندی مشکل:</label>
           <select name="issue_category" value={formData.issue_category} onChange={handleChange} required>
@@ -105,17 +101,14 @@ const App = () => {
             <option value="سایر">سایر</option>
           </select>
         </div>
-
         <div className="form-group">
           <label>توضیح مشکل:</label>
           <textarea name="issue_description" value={formData.issue_description} onChange={handleChange} required />
         </div>
-
         <div className="form-group">
           <label>شناسه پروژه/وظیفه (اختیاری):</label>
           <input type="text" name="project_task_id" value={formData.project_task_id} onChange={handleChange} />
         </div>
-
         <button type="submit">ارسال بازخورد</button>
       </form>
     </div>
